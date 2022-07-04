@@ -1,15 +1,34 @@
-import Footer from "./components/Footer"
-import Navbar from "./components/Navbar"
+import { useState } from "react"
 
 import styles from "./App.module.css"
 
+import Footer from "./components/Footer"
+import Navbar from "./components/Navbar"
+import TaskForm from "./components/TaskForm"
+import TaskList from "./components/TaskList"
+
+import { ITask } from "./interfaces/task"
+
 function App() {
+
+  const [taskList, setTaskList] = useState<ITask[]>([])
 
   return (
     <div className="App">
       <Navbar/>
       <main className={styles.main}>
-        <h1>Counteudo...</h1>
+        <div>
+          <h2>O que você vai fazer?</h2>
+          <TaskForm
+            btnText="Criar tarefa"
+            taskList={taskList}
+            setTaskList={setTaskList}
+          />
+        </div>
+        <div>
+          <h2>Suas tarefas:</h2>
+          <TaskList/>
+        </div>
       </main>
       <Footer/>
     </div>
