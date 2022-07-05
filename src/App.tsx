@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar"
 import TaskForm from "./components/TaskForm"
 import TaskList from "./components/TaskList"
 
-import { ITask } from "./interfaces/task"
+import { ITask } from "./interfaces/Task"
 
 function App() {
 
@@ -23,11 +23,11 @@ function App() {
             btnText="Criar tarefa"
             taskList={taskList}
             setTaskList={setTaskList}
-          />
+          /> 
         </div>
         <div>
           <h2>Suas tarefas:</h2>
-          <TaskList/>
+          <TaskList taskList={taskList}/>
         </div>
       </main>
       <Footer/>
